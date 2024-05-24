@@ -1,0 +1,18 @@
+<h1>Login</h1>
+
+<form action="/login" method="POST">
+    <label for=" username">Username:</label>
+    <br>
+    <input class="input-fields" type="text" id="username" name="username">
+    <br>
+    <label for="password">Password:</label>
+    <br>
+    <input class="input-fields" type="password" id="password" name="password">
+    <br>
+    <input id="submit-button" type="submit" value="Login">
+
+    <% if (errorMessage) { %>
+        <p style="color: red;"><%= errorMessage %></p>
+    <% } %>
+</form>
+

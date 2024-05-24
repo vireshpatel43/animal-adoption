@@ -1,0 +1,45 @@
+<h1>Create an account</h1>
+
+<form onsubmit="return validateForm()" action="/add-account" method="POST">
+    <label for=" username">Username:</label>
+    <br>
+    <input class="input-fields" type="text" id="username" name="username">
+    <p id="usernameError" class="invalid-field"></p>
+    <br>
+    <label for="password">Password:</label>
+    <br>
+    <input class="input-fields" type="password" id="password" name="password">
+    <p id="passwordError" class="invalid-field"></p>
+    <br>
+    <input id="submit-button" type="submit" value="Create Account">
+</form>
+
+<script>
+    function validateForm() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const usernameError = document.getElementById('usernameError');
+        const passwordError = document.getElementById('passwordError');
+
+        const usernameRegex = /^[a-zA-Z0-9]+$/;
+        const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d).{4,}$/;
+
+        let isValid = true;
+
+        if (!usernameRegex.test(username) || username.length === 0) {
+            usernameError.textContent = "Invalid username.";
+            isValid = false;
+        } else {
+            usernameError.textContent = "";
+        }
+
+        if (!passwordRegex.test(password) || password.length === 0) {
+            passwordError.textContent = "Invalid password. Please include a 4 character password containing at least 1 digit and 1 letter";
+            isValid = false;
+        } else {
+            passwordError.textContent = "";
+        }
+
+        return isValid;
+    }
+</script>

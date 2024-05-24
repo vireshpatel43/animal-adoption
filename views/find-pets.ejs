@@ -1,0 +1,14 @@
+<!-- pet-listings.ejs -->
+<div class="container">
+    <h1>Matching Pets</h1>
+    <div class="pet-listings">
+        <% if (filteredPets && filteredPets.length > 0) { %>
+            <% filteredPets.forEach(pet => { %>
+                <!-- Include pet-listing.ejs for each pet -->
+                <%- include('pet-listing', { pet: pet }) %>
+            <% }); %>
+        <% } else { %>
+            <h3>No matching pets found.</h3>
+        <% } %>
+    </div>
+</div>

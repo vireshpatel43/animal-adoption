@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title><%= pageTitle %> </title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+    <header>
+        <a href="/">
+            <img id="logo" src="images/dog-1517090_1280.png" alt="Website Logo of a dog and a cat" width="80"
+                height="80">
+        </a>
+        <h1 id="page-title">Animal Adoption Center</h1>
+        <p id="date-time"></p>
+        <script src="javascript/Date.js"></script>
+        <br>
+
+        <% if (isAuthenticated) { %>
+            <a href="/logout"><button class="login-logout">Logout</button></a>
+        <% } else { %>
+            <a href="/login-page"><button class="login-logout">Login</button></a>
+        <% } %>
+
+    </header>
+    <div>
+        <ul id="main-menu">
+            <li id="home">
+                <a href="/" class="<%= currentTab === 'home' ? 'active' : '' %>">Home</a>
+            </li>
+            <li>
+                <a href="/create-account" class="<%= currentTab === 'create-account' ? 'active' : '' %>">Create Account</a>
+            </li>
+            <li id="browse-pets">
+                <a href="/browse-pets" class="<%= currentTab === 'browse-pets' ? 'active' : '' %>">Browse Available Pets</a>
+            </li>
+            <li id="find-a-pet">
+                <a href="/find-a-pet" class="<%= currentTab === 'find-a-pet' ? 'active' : '' %>">Find a dog/cat</a>
+            </li>
+            <li id="dog-care">
+                <a href="/dog-care" class="<%= currentTab === 'dog-care' ? 'active' : '' %>">Dog Care</a>
+            </li>
+            <li id="cat-care">
+                <a href="/cat-care" class="<%= currentTab === 'cat-care' ? 'active' : '' %>">Cat Care</a>
+            </li>
+            <li id="give-away-pet">
+                <a href="/give-away-pet" class="<%= currentTab === 'give-away-pet' ? 'active' : '' %>">Have a pet to give away</a>
+            </li>
+            <li id="contact-us">
+                <a href="/contact-us" class="<%= currentTab === 'contact-us' ? 'active' : '' %>">Contact Us</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="content">
+        <%- include(content) %>
+    </div>
+
+    <footer>
+        <a href="/privacy-policy" target="_self">Privacy Policy</a>
+        <a href="/credits" target="_self">Credits</a>
+    </footer>
+</body>
+
+</html>

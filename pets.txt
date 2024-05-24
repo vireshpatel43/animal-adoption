@@ -1,0 +1,1 @@
+1:admin:Dog:3-6:Male:German Shepherd:Other Dogs,Small Children:Loves to play outdoors:admin:admin@animal-adoption.com
